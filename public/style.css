@@ -1,0 +1,268 @@
+.navbar{
+    position: absolute;
+    z-index: 2;
+    background-color: transparent !important;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+li{list-style: none;}
+.navSec{
+    width: 90%;
+}
+.navbar{
+    left: 3.5%;
+    background-color: rgba(41, 41, 41, 0.789) !important;
+}
+.navbar-toggler{
+    background-color: white;
+}
+.navSec .navbar-brand,.navbar .nav-link{
+    color: white !important;
+}
+.nav-item .active{
+    color: rgb(209, 8, 41) !important;
+}
+.nav-link{
+    transition: 0.5s;
+}
+.nav-link:hover{
+    color: rgb(209, 8, 41) !important;
+    transition: 0.5s;
+}
+
+.carousel-control-next,.carousel-control-prev{
+    width: 7%;
+}
+.carousel-control-next span,.carousel-control-prev span{
+    background-color: rgb(14, 14, 14);
+    border-radius: 5px;
+}
+.carouselBG,.colorBG{
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: absolute;
+    background-color: rgba(89, 89, 89, 0.336);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    color: white;
+}
+.colorBG{
+    opacity: 0;
+    transition: 0.5s;
+}
+
+
+.ProductsCard:hover .colorBG,.ProductsCard:hover .addCardSec{
+    opacity: 1;
+    transition: 0.5s;
+}
+.optionSlider .col-12{
+    height: 49vw;
+}
+
+.ShopNowBTN{
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 0.7% 2%;
+    transition: 0.5s;
+}
+.ShopNowBTN:hover{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    transition: 0.5s;
+}
+.carousel-item,.carousel,.carousel-inner,.carousel-inner img{
+    height: 100% !important;
+}
+.carousel-control-next, .carousel-control-prev {
+    width: 6% !important;
+}
+.card-image-top{
+    border-radius: 0 !important;
+}
+
+.TopCategorySec>div{
+    top: -5em;
+    z-index: 1;
+    background-color: white;
+}
+.viewBTN{
+    background-color: transparent;
+    color: gray;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+.viewBTN:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+
+.TopProductSec{
+    margin-top: 10%;
+    margin-bottom: 3%;
+}
+.TopProductSec i{
+    color: gray;
+}
+.card{
+    margin: 0% 0.7%;
+}
+.colorBG i{
+    color: gray;
+    transition: 0.5s;
+}
+.card-title a{
+    transition: 0.5s;
+}
+.colorBG a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.card-title a:hover{
+    background-color: rgb(209, 8, 41) !important;
+    border-color: rgb(209, 8, 41) !important;
+    transition: 0.5s;
+}
+.addCardSec{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.5s;
+}
+.addCardSec a{
+    background-color: rgb(209, 8, 41);
+    color: white;
+}
+.addCardSec i{
+    color: white;
+    transition: 0.5s;
+}
+.AddCard{
+    padding: 5% 16%;
+    border-radius: 100px;
+    margin-top: -3%;
+    transition: 0.5s;
+}
+.addCardSec :hover i{
+    color: rgb(209, 8, 41) !important;
+    transition: 0.5s;
+}
+.AddCard:hover{
+    color: rgb(209, 8, 41) !important;
+    background-color: white !important;
+    border-color: rgb(209, 8, 41) !important;
+    transition: 0.5s;
+}
+
+.limitTimeContainer{
+    background-color: rgb(229 226 226);
+}
+.limitTimeContainer .display-3{
+    color: rgb(209, 8, 41);
+}
+.limitTimeBG{
+    height: 40vw;
+    background-image: url(image/mobl-2.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.OffDate>div{
+    background-color: white;
+}
+.OffForm{
+    background-color: white;
+}
+.OffForm input{
+    outline: none;
+    border: none;
+}
+.sendBTN,.ShopNow{
+    background-color: rgb(209, 8, 41);
+    color: white;
+    border: 1px solid white !important;
+    transition: 0.5s;
+}
+.sendBTN:hover,.ShopNow:hover{
+    background-color: transparent;
+    border-color: rgb(209, 8, 41) !important;
+    color: rgb(209, 8, 41);
+    transition: 0.5s;
+}
+
+.NewItem img,.NewItem a{
+    transition: 0.5s;
+}
+.NewItem:hover img{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.NewItem i{
+    color: rgb(209, 8, 41);
+}
+.NewItem a:hover{
+    color: rgb(209, 8, 41);
+    transition: 0.5s;
+}
+.NewText{
+    color: gray;
+}
+
+footer{
+    background-color: rgb(27, 27, 28);
+    color: white;
+}
+footer a{
+    color: white;
+    transition: 0.5s;
+}
+footer a:hover{
+    color: rgb(209, 8, 41);
+    transition: 0.5s;
+}
+.SiteInfo i{
+    color: rgb(209, 8, 41);
+}
+.copyRight{
+    background-color: rgb(10, 10, 10);
+}
+
+@media only screen and (max-width:1220px){
+    .TopCategorySec{
+        margin-bottom: 245px !important;
+    }
+}
+@media only screen and (max-width:940px){
+    .TopCategorySec{
+        position: unset !important;
+        margin: 70px 0px !important;
+    }
+    .TopCategorySec>div{
+        position: unset !important;
+        margin-bottom: 0;
+    }
+    .optionSlider .col-12 {
+        height: 90vw;
+    }
+}
+@media only screen and (max-width:600px){
+    .optionSlider .col-12 {
+        height: 120vw;
+    }
+}
+@media only screen and (max-width:350px){
+    .optionSlider .col-12 {
+        height: 150vw;
+    }
+}

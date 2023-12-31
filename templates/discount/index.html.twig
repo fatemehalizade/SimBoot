@@ -1,0 +1,41 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Discount index{% endblock %}
+
+{% block body %}
+    <h1>Discount index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Percent</th>
+                <th>Start</th>
+                <th>Finish</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for discount in discounts %}
+            <tr>
+                <td>{{ discount.id }}</td>
+                <td>{{ discount.percent }} %</td>
+                <td>{{ discount.start ? discount.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ discount.finish ? discount.finish|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ discount.createdAt ? discount.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_discount_show', {'id': discount.id}) }}">show</a>
+                    <a href="{{ path('app_discount_edit', {'id': discount.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_discount_new') }}">Create new</a>
+{% endblock %}

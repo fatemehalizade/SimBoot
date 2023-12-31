@@ -1,0 +1,54 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}WebSiteProfile index{% endblock %}
+
+{% block body %}
+    <h1>WebSiteProfile index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Logo</th>
+                <th></th>
+                <th>Email</th>
+                <th>Tell</th>
+                <th>Address</th>
+                <th>Instagram</th>
+                <th>Youtube</th>
+                <th>Twitter</th>
+                <th>Facebook</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for web_site_profile in web_site_profiles %}
+            <tr>
+                <td>{{ web_site_profile.id }}</td>
+                <td>{{ web_site_profile.name }}</td>
+                <td>{{ web_site_profile.logo }}</td>
+                <td><img src="{{ asset('public/upload/') ~ web_site_profile.logo}}" style='width:80px;height:80px;'/></td>
+                <td>{{ web_site_profile.email }}</td>
+                <td>{{ web_site_profile.tell }}</td>
+                <td>{{ web_site_profile.address }}</td>
+                <td>{{ web_site_profile.instagram }}</td>
+                <td>{{ web_site_profile.youtube }}</td>
+                <td>{{ web_site_profile.twitter }}</td>
+                <td>{{ web_site_profile.facebook }}</td>
+                <td>{{ web_site_profile.createdAt ? web_site_profile.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_web_site_profile_show', {'id': web_site_profile.id}) }}">show</a>
+                    <a href="{{ path('app_web_site_profile_edit', {'id': web_site_profile.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

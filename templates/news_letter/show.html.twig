@@ -1,0 +1,27 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}NewsLetter{% endblock %}
+
+{% block body %}
+    <h1>NewsLetter</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ news_letter.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ news_letter.email }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ news_letter.createdAt ? news_letter.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_news_letter_index') }}">back to list</a>
+    
+{% endblock %}

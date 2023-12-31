@@ -1,0 +1,38 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Discount{% endblock %}
+
+{% block body %}
+    <h1>Discount</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ discount.id }}</td>
+            </tr>
+            <tr>
+                <th>Percent</th>
+                <td>{{ discount.percent }} %</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{{ discount.start ? discount.start|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Finish</th>
+                <td>{{ discount.finish ? discount.finish|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ discount.createdAt ? discount.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_discount_index') }}">back to list</a>
+
+    <a href="{{ path('app_discount_edit', {'id': discount.id}) }}">edit</a>
+
+    {{ include('discount/_delete_form.html.twig') }}
+{% endblock %}

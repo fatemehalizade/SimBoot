@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket</title>
+</head>
+<body>
+    {% if products|length > 0 %}
+        <table border="3">
+            <tr>
+                <th>#</th>
+                <th>image</th>
+                <th>name</th>
+                <th>base price</th>
+                <th>count</th>
+                <th>total price</th>
+            </tr>
+
+            {% set counter = 1 %}
+            {% for product in products %}
+                <tr>
+                    <td><img src="{{ asset('public/upload/' ~ product.image)}}" class="card-img-top" alt="{{product.name}}" width="100px" height="100px"></td>
+                    <td>{{ counter }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.basePrice }}$</td>
+                    <td>{{ product.count }}</td>
+                    <td>{{ product.totalPrice }}$</td>
+                </tr>
+
+                
+                {% set counter = counter+1 %}
+            {% endfor %}
+        </table>
+        
+        <p><span>All Price : </span>{{allPrice}}$</p>
+        {% if products|length != 0 %}
+            <a href="{{path('app_save_order')}}" style="border:1px solid gray;padding:5px;">pay orders</a>
+        {% endif %}
+    {% else %}
+        <p>You're Basket is EMPTY!</p>
+    {% endif %}
+
+    <a href="{{path('app_index')}}">back to HOME</a>
+</body>
+</html>

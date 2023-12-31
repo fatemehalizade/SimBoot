@@ -1,0 +1,65 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}WebSiteProfile{% endblock %}
+
+{% block body %}
+    <h1>WebSiteProfile</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ web_site_profile.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ web_site_profile.name }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ web_site_profile.logo }}</td>
+            </tr>
+            <tr>
+                <th>Logo Pic</th>
+                <td><img src="{{ asset('public/upload/') ~ web_site_profile.logo}}" style='width:100px;height:100px;'/></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ web_site_profile.email }}</td>
+            </tr>
+            <tr>
+                <th>Tell</th>
+                <td>{{ web_site_profile.tell }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ web_site_profile.address }}</td>
+            </tr>
+            <tr>
+                <th>Instagram</th>
+                <td>{{ web_site_profile.instagram }}</td>
+            </tr>
+            <tr>
+                <th>Youtube</th>
+                <td>{{ web_site_profile.youtube }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ web_site_profile.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ web_site_profile.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ web_site_profile.createdAt ? web_site_profile.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_web_site_profile_index') }}">back to list</a>
+
+    <a href="{{ path('app_web_site_profile_edit', {'id': web_site_profile.id}) }}">edit</a>
+
+{% endblock %}

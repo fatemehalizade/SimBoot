@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{{ asset('public/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/fontello/fontello-8bc062fb/css/fontello.css')}}">
+</head>
+<body>
+
+    <div class="container-fluid p-0 overflow-hidden optionSlider">
+        <div class="row justify-content-center">
+            <div class="col-12 ">
+              
+                <nav class="navbar col-11 navbar-expand-lg bg-body-tertiary mt-1 navSec overflow-hidden rounded">
+                    <div class="container-fluid align-center">
+                      <a class="navbar-brand ms-2 me-5" href="{{path('app_index')}}">{{ profile.name }}</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                          <li class="nav-item ms-xl-0 ms-4">
+                            <a class="nav-link active" aria-current="page" href="{{path('app_index')}}">Home</a>
+                          </li>
+                          <li class="nav-item ms-4">
+                            <a class="nav-link" href="#Pages">Pages</a>
+                          </li>
+                          <li class="nav-item ms-4">
+                            <a class="nav-link" href="#Products">Products</a>
+                          </li>
+                          <li class="nav-item ms-4">
+                            <a class="nav-link" href="#Blog">Blog</a>
+                          </li>
+                          <li class="nav-item ms-4">
+                            <a class="nav-link" href="#Shop">Shop</a>
+                          </li>
+                          <li class="nav-item ms-4">
+                            <a class="nav-link" href="{{path("app_basket")}}">Basket</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </nav>
+
+                <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                    <div class="carousel-inner">
+                    {% set sliderCounter = 1 %}
+                      {% for slider in sliders %}
+                        {% if sliderCounter == 1 %}
+                          <div class="carousel-item active">
+                            <div class="carouselBG">
+                                <p class="display-4">{{ slider.title }}</p>
+                                <p class="h5 col-7 text-center">{{ slider.summery }}</p>
+                                <button class="ShopNowBTN mt-2">Shop Now</button>
+                            </div>
+                            <img src="{{ asset('public/upload/' ~ slider.image)}}" class="d-block w-100" alt="{{ slider.title }}">
+                          </div>
+                        {% else %}
+                          <div class="carousel-item">
+                            <div class="carouselBG">
+                                <p class="display-4">{{ slider.title }}</p>
+                                <p class="h5 col-7 text-center">{{ slider.summery }}</p>
+                                <button class="ShopNowBTN mt-2">Shop Now</button>
+                            </div>
+                            <img src="{{ asset('public/upload/' ~ slider.image)}}" class="d-block w-100" alt="{{ slider.title }}">
+                          </div>
+                        {% endif %}
+                        {% set sliderCounter= sliderCounter+1 %}
+                      {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid ">
+      <div class="row justify-content-center TopCategorySec position-relative">
+        <div class="col-md-10 col-sm-12 p-4 rounded shadow position-absolute">
+          <div class="row flex-xl-row flex-sm-column align-item-xl-auto align-items-sm-center">
+            <div class="col-xl-2 col-sm-12 me-4 mb-xl-0 mb-4 d-flex flex-column text-xl-start text-center align-items-xl-start align-items-center">
+              <p class="h5">Top Categories</p>
+              <p>There are many variations of passages of Lorem</p>
+              <button class="viewBTN rounded pt-1 pb-1 p-3"> View All</button>
+            </div>
+    
+            <div class="col-xl-9 col-sm-12 mt-xl-0 mt-sm-3">
+              <div id="carouselExample2" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="col-12">
+                      <div class="row flex-nowrap">
+                          {% for category in categories %}
+                            <div class="card me-3 ms-3 p-1" style="width: 13rem;">
+                                <a href="#">
+                                  <img src="{{ asset('public/upload/' ~ category.image)}}" class="card-img-top rounded-0" alt="{{ category.name }}">
+                                </a>
+                            </div>
+                          {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="col-12">
+                      <div class="row flex-nowrap">
+                          {% for category in categories %}
+                            <div class="card me-3 ms-3 p-1" style="width: 13rem;">
+                                <a href="#">
+                                  <img src="{{ asset('public/upload/' ~ category.image)}}" class="card-img-top rounded-0" alt="{{ category.name }}">
+                                </a>
+                            </div>
+                          {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid TopProductSec">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-sm-12 text-center">
+          <div class="row">
+
+            <div class="col-12">
+              <p class="h2">Our Top Products</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim Nullam nunc varius.</p>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center flex-wrap">
+
+                {% for moreScoreProduct in moreScoreProducts %}
+                  <div class="card justify-content-center border border-secondary ProductsCard mb-3" style="width: 18rem;">
+                    <a href="#">
+                      <div class="card-title position-relative m-0">
+                        <img src="{{ asset('public/upload/' ~ moreScoreProduct.image)}}" class="card-img-top" alt="{{moreScoreProduct.name}}">
+                        <div class="colorBG">
+                          <ul class="p-0 d-flex">
+                            <li ><a href="#" class="h5 p-2 m-1 rounded-circle border border-white bg-white">
+                              <i class="icon-share"></i>
+                            </a></li>
+
+                            <li><a href="#" class="h5 p-2 m-1 rounded-circle border border-white bg-white">
+                              <i class="icon-zoom-in"></i>
+                            </a></li>
+
+                            <li><a href="#" class="h5 p-2 m-1 rounded-circle border border-white bg-white">
+                              <i class=" icon-heart-empty"></i>
+                            </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="card-body d-flex flex-column text-center position-relative">
+                        <h5 class="card-title">{{ moreScoreProduct.name }}</h5>
+                        <p class="card-text">$ {{ moreScoreProduct.price }}</p>
+                        <p class="card-text"><i class="icon-star" style='color:yellow'></i> {{ moreScoreProductsScores[moreScoreProduct.id] }}</p>
+
+                        <div class="addCardSec position-absolute d-flex justify-content-center align-items-center">
+                          <a href="{{path("app_add_basket",{"id": moreScoreProduct.id})}}" class="AddCard d-flex border border-black">
+                            <i class="icon-shopping-bag"></i>
+                            add card
+                          </a>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                {% endfor %}
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row limitTimeContainer d-flex justify-content-xl-end justify-content-sm-between align-items-center overflow-hidden pt-5 pb-5">
+        <div class="col-xl-4 col-md-6 limitTimeSec mt-5 mb-5 text-md-start text-center">
+          <p class="h3">Limited Time Offer</p>
+          <p class="display-3">Sale 40% Off</p>
+
+          <div class="row flex-nowrap OffDate mt-5 mb-3 justify-content-center">
+            <div class="col-2 p-0 pt-3 pb-3 ms-3 me-3 text-center d-flex flex-column h4">
+              <span>00</span>
+              <span>day</span>
+            </div>
+            <div class="col-2 p-0 pt-3 pb-3 ms-3 me-3 text-center d-flex flex-column h4">
+              <span>00</span>
+              <span>day</span>
+            </div>
+            <div class="col-2 p-0 pt-3 pb-3 ms-3 me-3 text-center d-flex flex-column h4">
+              <span>00</span>
+              <span>day</span>
+            </div>
+            <div class="col-2 p-0 pt-3 pb-3 ms-3 me-3 text-center d-flex flex-column h4">
+              <span>00</span>
+              <span>day</span>
+            </div>
+          </div>
+
+          <button class="ShopNow mb-3 p-2 ps-4 pe-4 rounded">Shop Now</button>
+
+          <form action="{{path("app_news_letter_new")}}" method="post" class="col-12 d-flex OffForm p-1  justify-content-between rounded">
+            <input class="col-md-9 col-7 p-2" type="text" placeholder="Enter Your Email" name="email">
+            <input class="pe-3 ps-3 sendBTN rounded" type="submit" value="subscript">
+          </form>
+        </div>
+        <div class="col-6 limitTimeBG d-md-block d-none"></div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row d-flex flex-column align-items-center mt-5 mb-5">
+
+        <div class="col-10 text-center">
+          <p class="h2">Special Offers</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim Nullam nunc varius.</p>
+        </div>
+
+        <div class="col-md-9 col-11">
+          <div id="carouselExample1" class="carousel slide">
+            <div class="carousel-inner">
+
+              {% set offerCounter=1 %}
+              {% for offerProduct in offerProducts %}
+                <div class="carousel-item {% if offerCounter==1 %} {{ 'active' }} {% endif %}">
+                  <div class="col-12">
+                    <div class="row flex-nowrap">
+
+                        <div class="card p-0 justify-content-center border border-secondary ProductsCard me-3 ms-4" style="width: 15rem;">
+                          <a href="#">
+                            <div class="card-title position-relative m-0">
+                              <img src="{{ asset('public/upload/' ~ offerProduct.image)}}" class="card-img-top" alt="...">
+                              <div class="colorBG">
+                                <ul class="p-0 d-flex">
+                                  <li ><a href="#" class="h5 p-2 m-1 rounded-circle border border-white bg-white">
+                                    <i class="icon-share"></i>
+                                  </a></li>
+          
+                                  <li><a href="#" class="h5 p-2 m-1 rounded-circle border border-white bg-white">
+                                    <i class="icon-zoom-in"></i>
+                                  </a></li>
+          
+                                  <li><a href="#" class="h5 p-2 m-1 rounded-circle border border-white bg-white">
+                                    <i class=" icon-heart-empty"></i>
+                                  </a></li>
+                                </ul>
+                              </div>
+                            </div>
+          
+                            <div class="card-body d-flex flex-column text-center position-relative">
+                              <h5 class="card-title">{{ offerProduct.name }}</h5>
+                              <p class="card-text">$ {{ offerProduct.price }}</p>
+          
+                              <div class="addCardSec position-absolute d-flex justify-content-center align-items-center">
+                                <a href="{{path("app_add_basket",{"id": offerProduct.id})}}" class="AddCard d-flex border border-black">
+                                  <i class="icon-shopping-bag"></i>
+                                  add card
+                                </a>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                {% set offerCounter=offerCounter+1 %}
+              {% endfor %}
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5 mb-4">
+      <div class="row justify-content-center">
+        <div class="col-xxl-10 col-12 text-center">
+
+          <div class="row">
+
+            <div class="col-12">
+              <p class="h2">Latest Blogs</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim Nullam nunc varius.</p>
+            </div>
+
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-xl-10 col-12 d-flex justify-content-center flex-xl-nowrap flex-wrap">
+
+              {% for blog in blogs %}
+                <div class="card border border-secondary mb-3 ms-3 me-3 NewItem" style="width: 20rem;">
+                  <a href="#">
+                    <div class="card-title m-0 overflow-hidden">
+                      <img src="{{ asset('public/upload/' ~ blog.image)}}" class="card-img-top" alt="{{ blog.title }}">
+                    </div>
+
+                    <div class="card-body d-flex flex-column text-start">
+
+                      <a href="#" class="h5">{{ blog.title }}</a>
+
+                      <div class="col-12 d-flex">
+                        <p class="card-text me-4">
+                          <i class="icon-calendar"></i>
+                          <a href="#">{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</a>
+                        </p>
+                        <p class="card-text">
+                          <i class=" icon-comment"></i>
+                          <a href="#">Comment</a>
+                        </p>
+                      </div>
+
+                      <p class="card-text NewText">{{ blog.summery }}</p>
+                    </div>
+                  </a>
+                </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-5 overflow-hidden">
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-9 col-11 d-flex align-items-center mb-5 border-bottom flex-xl-nowrap flex-wrap flex-xl-row flex-column">
+          <div class="col-xl-6 col-12 text-xl-start text-center d-flex align-items-xl-start align-items-center flex-column">
+              <p class="h4">
+                Subscribe Our Newsletter
+              </p>
+              <p class="col-10">Contrary to popular belief of lorem Ipsm Latin amet ltin from industry. Phasellus blandit massa enim varius nunc.</p>
+          </div>
+          <div class="col-xl-6 col-12 overflow-hidden mb-xl-0 mb-3">
+            <form action="{{path("app_news_letter_new")}}" method="post" class="col-12 d-flex OffForm p-1  justify-content-between rounded">
+              <input class="col-md-9 col-7 p-2 rounded" type="text" placeholder="Enter Your Email" name="email" />
+              <input class="pe-3 ps-3 sendBTN rounded" type="submit" value="subscript">
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-11 d-flex align-items-center mb-5 justify-content-between border-bottom flex-xl-nowrap flex-wrap flex-xl-row flex-column">
+          <div class="col-xl-4 col-12 text-center mb-xl-0 mb-4">
+            <a href="#" class="d-flex flex-column align-items-center">
+              <img class="col-8" src="{{ asset('public/image/logo.png')}}" alt="#">
+            </a>
+            <p>If you are going to use of Lorem Ipsum need to be sure there isn't hidden of text</p>
+            <div class="col-12 d-flex justify-content-center">
+              <a href="{{ profile.facebook }}" class="me-4">
+                <i class="icon-facebook"></i>
+              </a>
+              <a href="{{ profile.instagram }}" class="me-4">
+                <i class="icon-instagram"></i>
+              </a>
+              <a href="{{ profile.email }}" class="me-4">
+                <i class=" icon-mail"></i>
+              </a>
+              <a href="{{ profile.twitter }}" class="me-4">
+                <i class="icon-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+          <ul>
+            <p>Quick Links</p>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            <p>Quick Links</p>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            <p>Quick Links</p>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#">
+                About Us
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="col-9 d-flex align-items-center mb-5 justify-content-between flex-xl-nowrap flex-wrap flex-xl-row flex-column">
+
+          <div class="col-3 d-flex SiteInfo flex-xl-row flex-column align-items-center text-center">
+            <i class="icon-map-pin h2"></i>
+            <p class="d-flex flex-column">
+              <span class="h5">Location</span>
+              <span>{{ profile.address }}</span>
+            </p>
+          </div>
+
+          <div class="col-3 d-flex SiteInfo flex-xl-row flex-column align-items-center text-center">
+            <i class=" icon-mail-alt h2"></i>
+            <p class="d-flex flex-column">
+              <span class="h5">Email Us</span>
+              <span>
+                <a href="#">
+                  {{ profile.email }}
+                </a>
+                <a href="#">
+                  bestwebcreator.com
+                </a>
+              </span>
+            </p>
+          </div>
+
+          <div class="col-3 d-flex SiteInfo flex-xl-row flex-column align-items-center text-center">
+            <i class="icon-headphones h2"></i>
+            <p class="d-flex flex-column">
+              <span class="h5">27/4 Online Support</span>
+              <span>Call for styling advice on </span>
+              <a href="#">{{profile.tell}}</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-12 pt-5 pb-5 d-flex justify-content-center copyRight">
+        <div class="col-9 d-flex align-items-center justify-content-md-between justify-content-center flex-md-row flex-column">
+          <small>© {{ "now"|date("Y") }} All Rights Reserved by Bestwebcreator</small>
+          <a href="#">
+            <img src="{{ asset('public/image/payment.webp')}}" alt="#">
+          </a>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="{{ asset('public/js/bootstrap.js')}}"></script>
+</body>
+</html>

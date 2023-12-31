@@ -1,0 +1,12 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Edit WebSiteProfile{% endblock %}
+
+{% block body %}
+    <h1>Edit WebSiteProfile</h1>
+
+    {{ include('web_site_profile/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_web_site_profile_index') }}">back to list</a>
+
+{% endblock %}
